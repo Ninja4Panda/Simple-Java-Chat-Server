@@ -32,7 +32,9 @@ Assuming that the inactive timeout is longer than 5 seconds, a 5 seconds warning
 
 # Improvements And Extensions
 Create back up files in case server goes down and all clients data will be lost.
+
 Some functionality can be implemented in the client side to decrease load on server.
+
 A threadID can be used to distinish between each thread instead of using names.  
 
 # Reference
