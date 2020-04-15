@@ -1,5 +1,12 @@
+# Brief Description
+A Java command line chat application providing different functionalities such as offline messaging, direct messaging, broadcasting and more.
+
 # Program Design
-The approach taken was having one Server that keeps running and create new handler threads for every client that connects to the server. The handler handles all functionality for each client. Two threads from the client side handling the sending and receiving of messages both system and other users.
+When the server begins, it sits and listen for clients to join. 
+
+After a client joins, a new thread is created. Every client thread created is added into an ArrayList that is kept and maintained by the server. 
+
+The thread then prompt the user to input credentials. After validating the it with creadential.txt greeting and help messages will pop up for the user. 
 
 # Application Layer Message Format
 There are two types of message format:
@@ -14,15 +21,6 @@ There are two types of message format:
    **Scenario:**\
    ---A messaging B & on B screen---
    >A: Hi              
-
-# Brief Description
-When the server begins, it sits and listen for clients to join. 
-
-After a client joins, a new thread is created. Every client thread created is added into an ArrayList that is kept and maintained by the server. The thread then prompt the user to input credentials. A greeting and help messages will pop up for the user. 
-
-An interesting functionality would be blocking for a period of time after 3 consecutive failed attempts. It opens a new thread to keep track of the time and add or remove the user from the blocklist that is stored in the server. 
-
-Some ambiguities were also evidence in the assignment such as the user blocking. The approach that made the most sense would be if A blocked B. B can't message A and get presence notification of A. But A also can't message B and get notifcation of B. As it doesn't make sense to have a one-way communcation. 
 
 # Desgin Tradeoffs
 For the logout due to inactivity, a new thread was created to keep track of the time. After timeout is reached user is directly logged out in the new thread instead of signalling the main thread to log out causing the main thread to keep running for a litte longer even though the client is already logged out. 
